@@ -1,0 +1,49 @@
+@startuml Contenido_Educativo_UseCase
+left to right direction
+skinparam monochrome true
+skinparam packageStyle rectangle
+
+actor "Paciente" as User
+actor "Sistema / IA" as Sys
+
+rectangle "Módulo: Contenido Educativo" {
+    usecase "Visualizar Mapa de Misiones" as UC1
+    usecase "Ejecutar Sesión de Trivia" as UC2
+    usecase "Consultar Pista de IA" as UC2_1
+    usecase "Validar Respuesta y Proporcionar Feedback" as UC3
+    usecase "Finalizar Misión y Actualizar Progreso" as UC4
+}
+
+' Relaciones del Usuario
+User --> UC1
+User --> UC2
+
+' Relaciones del Sistema (Actor de soporte para la lógica y persistencia)
+UC1 <-- Sys
+UC3 <-- Sys
+UC4 <-- Sys
+
+' Inclusiones y extensiones de lógica de negocio
+UC2 ..> UC3 : <<include>>
+UC3 ..> UC4 : <<include>>
+UC2 <.. UC2_1 : <<extend>>
+
+note right of UC1
+  Representa 20 niveles
+  en 4 tierras temáticas
+  y muestra el puntaje.
+end note
+
+note bottom of UC3
+  Valida en tiempo real y
+  genera retroalimentación
+  educativa y lúdica.
+end note
+
+note bottom of UC4
+  Calcula recompensas y
+  guarda el progreso de
+  forma permanente.
+end note
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml Chats_Mensajes_UseCase
+left to right direction
+skinparam monochrome true
+skinparam packageStyle rectangle
+
+actor "Paciente" as User
+actor "Sistema / IA" as System
+
+rectangle "Módulo: Mensajería con Asistente IA" {
+  usecase "Iniciar Conversación con Asistente" as UC01
+  usecase "Enviar Mensaje de Texto" as UC02
+  usecase "Filtrar Contenido Sensible y Médico" as UC03
+  usecase "Generar y Enviar Respuesta" as UC04
+  usecase "Ver Historial de Conversaciones" as UC05
+  usecase "Eliminar Conversación" as UC06
+}
+
+' Relaciones del Usuario
+User --> UC01
+User --> UC02
+User --> UC05
+User --> UC06
+
+' Relaciones del Sistema
+System --> UC03 : "Valida seguridad"
+System --> UC04 : "Procesa lenguaje natural"
+System --> UC05 : "Recupera registros"
+System --> UC06 : "Borra registros"
+
+' Inclusiones de lógica de negocio
+UC02 ..> UC03 : <<include>>
+UC03 ..> UC04 : <<include>>
+
+note right of UC03
+  Protocolo de seguridad que 
+  bloquea consejos sobre 
+  dosis o tratamientos médicos.
+end note
+
+@enduml

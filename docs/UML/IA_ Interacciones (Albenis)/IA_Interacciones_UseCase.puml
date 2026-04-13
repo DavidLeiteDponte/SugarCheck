@@ -1,0 +1,35 @@
+@startuml IA_Interacciones_UseCase
+left to right direction
+skinparam monochrome true
+skinparam packageStyle rectangle
+
+actor "Sistema / IA" as System
+actor "Contacto de Emergencia" as Contact
+
+rectangle "Módulo: Análisis e Interacciones IA" {
+  usecase "Generar Análisis de Patrones Glucémicos" as CU13
+  usecase "Generar Resumen Semanal Personalizado" as CU14
+  usecase "Detectar Posibles Causas de Alteraciones" as CU15
+  usecase "Enviar Alerta de Tendencia Preocupante" as CU16
+}
+
+' Relaciones del Sistema (El sistema inicia todas las acciones según tus cuadros)
+System --> CU13 : "Analiza datos históricos"
+System --> CU14 : "Consolida estadísticas"
+System --> CU15 : "Correlaciona eventos"
+System --> CU16 : "Monitorea riesgos"
+
+' Relación con el Actor Externo (Salida de información)
+CU16 ..> Contact : "Notifica tendencia crítica"
+
+' Inclusiones de lógica interna
+CU16 ..> CU13 : <<include>>
+
+
+note bottom of CU16
+  Se dispara automáticamente 
+  al detectar patrones de riesgo 
+  persistentes
+end note
+
+@enduml

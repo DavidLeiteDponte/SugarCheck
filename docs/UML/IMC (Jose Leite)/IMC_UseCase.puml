@@ -1,0 +1,29 @@
+@startuml
+title Módulo de Control de Peso y Estatura (IMC)
+
+actor "Paciente" as p
+actor "<<Application>>\nSistema" as s
+
+package "Módulo de Control de Peso y Estatura (IMC)" {
+    usecase "Registrar Peso y Estatura" as uc_reg_pe
+    usecase "Visualizar Historial y Tendencias" as uc_vis_ht
+    usecase "Identificar Variaciones de Riesgo" as uc_id_vr
+    usecase "Validar Rangos Biológicos" as uc_val_rb
+    usecase "Calcular IMC Automáticamente" as uc_cal_imc
+    usecase "Asignar Color de Rango (Semáforo)" as uc_as_cr
+    usecase "Mostrar Advertencia de Datos No Válidos" as uc_mos_adv
+
+}
+
+p -- uc_reg_pe
+p -- uc_vis_ht
+p -- uc_id_vr
+s -- uc_vis_ht
+s -- uc_id_vr
+
+uc_reg_pe ..> uc_val_rb : <<include>>
+uc_reg_pe ..> uc_cal_imc : <<include>>
+uc_cal_imc ..> uc_as_cr : <<include>>
+uc_mos_adv .up.> uc_val_rb : <<extend>>
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+title Módulo de Insulina Basal - Completo
+
+actor "Paciente" as p
+actor "<<Application>>\nSistema" as s
+
+package "Módulo de Insulina Basal" {
+    ' Casos de uso originales
+    usecase "Registrar Dosis de Insulina Basal" as uc_reg_ib
+    usecase "Monitorear Tiempo desde Última Dosis" as uc_mon_t
+    usecase "Seleccionar Zona de Punción (Rotación)" as uc_sel_zp
+    usecase "Emitir Alerta de Seguridad (< 2h)" as uc_em_al
+
+    ' Nuevos casos de uso sugeridos
+    usecase "Visualizar Historial de Dosis" as uc_hist
+    usecase "Configurar Recordatorios de Aplicación" as uc_rem
+    usecase "Registrar Nivel de Glucosa Pre-aplicación" as uc_glu
+    usecase "Notificar Bajo Inventario de Insulina" as uc_inv
+    
+}
+
+' Relaciones de Actores
+p -- uc_reg_ib
+p -- uc_hist
+p -- uc_rem
+p -- uc_glu
+
+s -- uc_mon_t
+s -- uc_inv
+s -- uc_rem
+
+' Relaciones de Casos de Uso
+uc_reg_ib ..> uc_sel_zp : <<include>>
+uc_reg_ib ..> uc_glu : <<extend>>
+uc_em_al .up.> uc_mon_t : <<extend>>
+uc_hist ..> uc_mon_t : <<include>>
+
+@enduml

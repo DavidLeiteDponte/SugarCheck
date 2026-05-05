@@ -1,4 +1,4 @@
-import { Result } from '../../../shared/result';
+import { Result } from '../../result';
 import { UserIdInvalidError } from '../errors/UserIdInvalidError';
 
 export class UserId {

@@ -6,7 +6,6 @@ import { ErrorAbstract } from '../../../shared/error-abstract';
 import { DatabaseError } from '../../../shared/DatabaseError';
 import { UserRepository } from '../../core/UserRepository';
 import { PrismaService } from '../../../shared/infrastructure/prisma.service';
-import { UserId } from '../../core/value-objects/UserId';
 import { UserName } from '../../core/value-objects/UserName';
 import { UserEmail } from '../../core/value-objects/UserEmail';
 import { UserRoles } from '../../core/value-objects/UserRoles';
@@ -15,6 +14,7 @@ import { UserPassword } from '../../core/value-objects/UserPassword';
 import { UserFechaNacimiento } from '../../core/value-objects/UserFechaNacimiento';
 import { UserNotFoundError } from '../../core/errors/UserNotFoundError';
 import { UserAlreadyExists } from '../../core/errors/UserAlreadyExists';
+import { UserId } from '../../../shared/core/value-objects/UserId';
 
 interface UserDB {
   id: string;

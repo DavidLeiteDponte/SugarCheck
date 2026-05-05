@@ -1,10 +1,10 @@
+import { UserId } from '../../../src/shared/core/value-objects/UserId';
 import { ErrorAbstract } from '../../../src/shared/error-abstract';
 import { Result } from '../../../src/shared/result';
 import { UserNotFoundError } from '../../../src/user/core/errors/UserNotFoundError';
 import { User } from '../../../src/user/core/User';
 import { UserRepository } from '../../../src/user/core/UserRepository';
 import { UserEmail } from '../../../src/user/core/value-objects/UserEmail';
-import { UserId } from '../../../src/user/core/value-objects/UserId';
 
 export class InMemoryUserRepository implements UserRepository {
   private users: User[] = [];

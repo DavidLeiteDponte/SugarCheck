@@ -21,7 +21,7 @@ import { SaveUser } from '../../app/SaveUser';
 import { UserAlreadyExists } from '../../core/errors/UserAlreadyExists';
 import { ErrorAbstract } from '../../../shared/error-abstract';
 import { UserNotFoundError } from '../../core/errors/UserNotFoundError';
-import { FindUserIdDTO } from './DTOs/find-user-id.dto';
+import { FindUserIdDTO } from '../../../shared/infrastructure/DTOs/find-user-id.dto';
 import { FindUserEmailDTO } from './DTOs/find-user-email.dto';
 import { CreateUserDTO } from './DTOs/create-user.dto';
 

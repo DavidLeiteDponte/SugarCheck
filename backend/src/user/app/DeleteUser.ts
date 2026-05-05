@@ -1,7 +1,7 @@
 import { ErrorAbstract } from '../../shared/error-abstract';
 import { Result } from '../../shared/result';
 import { UserRepository } from '../core/UserRepository';
-import { UserId } from '../core/value-objects/UserId';
+import { UserId } from '../../shared/core/value-objects/UserId';
 
 export class DeleteUser {
   constructor(private readonly repository: UserRepository) {}

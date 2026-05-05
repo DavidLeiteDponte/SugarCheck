@@ -1,8 +1,8 @@
-import { UserId } from './value-objects/UserId';
 import { User } from './User';
 import { UserEmail } from './value-objects/UserEmail';
 import { ErrorAbstract } from '../../shared/error-abstract';
 import { Result } from '../../shared/result';
+import { UserId } from '../../shared/core/value-objects/UserId';
 
 export interface UserRepository {
   getAll(): Promise<Result<User[], ErrorAbstract>>;

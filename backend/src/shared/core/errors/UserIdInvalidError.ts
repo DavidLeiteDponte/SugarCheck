@@ -1,4 +1,4 @@
-import { ErrorAbstract } from '../../../shared/error-abstract';
+import { ErrorAbstract } from '../../error-abstract';
 
 // 1. Error específico para IDs
 export class UserIdInvalidError extends ErrorAbstract {

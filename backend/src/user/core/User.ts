@@ -1,10 +1,10 @@
 import { UserName } from './value-objects/UserName';
-import { UserId } from './value-objects/UserId';
 import { UserEmail } from './value-objects/UserEmail';
 import { UserRoles } from './value-objects/UserRoles';
 import { UserCreatedAt } from './value-objects/UserCreatedAt';
 import { UserFechaNacimiento } from './value-objects/UserFechaNacimiento';
 import { UserPassword } from './value-objects/UserPassword';
+import { UserId } from '../../shared/core/value-objects/UserId';
 
 interface UserProps {
   id: UserId;

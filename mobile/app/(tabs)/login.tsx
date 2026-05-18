@@ -1,31 +1,21 @@
 import { StyleSheet, View } from "react-native"; // Cambiamos Host/Card por View
-import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
-import { Card } from "@/components/card";
+import TextInputSystem from "@/components/input";
+import { H1 } from "@/components/ui/h1";
+import { Colors } from "@/constants/theme";
+import { useColorScheme } from "@/hooks/use-color-scheme.web";
 
-export default function HomeScreen() {
+export default function LoginScreen() {
+  const colorScheme = useColorScheme() ?? "light";
   return (
     <ThemedView style={styles.mainContainer}>
-      <ThemedText type="title">Home</ThemedText>
-      
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Hola, Guerrero Gabriel!</ThemedText>
-      </ThemedView>
-
       {/* Sustituimos la Columna y los Cards por Views con estilo */}
       <View style={styles.column}>
-        
         {/* Simulación de Elevated Card */}
-        <Card style={[styles.card, styles.elevated]}>
-          <ThemedText>Ultima Glicemia</ThemedText>
-          <ThemedText>Cronometro de Seguridad</ThemedText>
-        </Card>
-
-        {/* Simulación de Outlined Card */}
-        <Card style={[styles.card, styles.outlined]}>
-          <ThemedText>Registro del Dia</ThemedText>
-        </Card>
-
+        <View style={[styles.card, styles.elevated]}>
+          <H1 style={{ color: Colors[colorScheme].tint, marginBottom: 20}}>Inicio session</H1>
+          <TextInputSystem></TextInputSystem>
+        </View>
       </View>
     </ThemedView>
   );
@@ -47,20 +37,20 @@ const styles = StyleSheet.create({
   card: {
     padding: 16,
     borderRadius: 12,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   elevated: {
     // Sombra para Android
     elevation: 4,
     // Sombra para iOS
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
   outlined: {
     borderWidth: 1,
-    borderColor: '#e0e0e0',
-    backgroundColor: 'transparent',
+    borderColor: "#e0e0e0",
+    backgroundColor: "transparent",
   },
 });

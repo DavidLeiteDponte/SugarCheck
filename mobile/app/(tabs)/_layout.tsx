@@ -6,6 +6,7 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -15,6 +16,14 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
         tabBarButton: HapticTab,
+        // --- AÑADE ESTO PARA CAMBIAR EL COLOR ---
+        tabBarStyle: {
+          backgroundColor: Colors[colorScheme ?? 'light'].backgroundNavBar, // Fondo de la barra
+          borderTopWidth: 0, // Elimina la línea superior para un look más moderno
+          elevation: 0,      // Elimina la sombra en Android
+          height: 60,        // Un poco más de altura (opcional)
+          paddingBottom: 8,  // Ajuste de iconos
+        },
       }}>
       <Tabs.Screen
         name="index"
@@ -24,10 +33,31 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="futbol"
+        name="historial"
         options={{
-          title: 'Futbol',
-          tabBarIcon: ({ color }) => <FontAwesome size={26} name="amazon" color={color} />,
+          title: 'Historial',
+          tabBarIcon: ({ color }) => <FontAwesome size={26} name="history" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="agent"
+        options={{
+          title: 'Agente',
+          tabBarIcon: ({ color }) => <FontAwesome size={26} name="android" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="perfil"
+        options={{
+          title: 'Perfil',
+          tabBarIcon: ({ color }) => <FontAwesome size={26} name="user-circle" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="login"
+        options={{
+          title: 'login',
+          tabBarIcon: ({ color }) => <FontAwesome size={26} name="lock" color={color} />,
         }}
       />
     </Tabs>

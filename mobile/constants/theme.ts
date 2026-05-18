@@ -6,12 +6,13 @@
 import { Platform } from 'react-native';
 
 const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const tintColorDark = '#7AAFD7';
 
 export const Colors = {
   light: {
     text: '#11181C',
     background: '#fff',
+    backgroundNavBar: '#AFCFE7',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',
@@ -20,6 +21,7 @@ export const Colors = {
   dark: {
     text: '#ECEDEE',
     background: '#151718',
+    backgroundNavBar: '#314656',
     tint: tintColorDark,
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
@@ -29,25 +31,24 @@ export const Colors = {
 
 export const Fonts = Platform.select({
   ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
+    /** Asegúrate de que el nombre coincida exactamente con el nombre del archivo instalado */
+    sans: 'Montserrat-Regular',
+    serif: 'Montserrat-SemiBold', // Montserrat no es serif, pero aplicamos una variante para mantener la jerarquía
+    rounded: 'Montserrat-Medium',
+    mono: 'Montserrat-Light',
   },
   default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
+    /** En Android se usa el nombre del archivo sin extensión */
+    sans: 'Montserrat-Regular',
+    serif: 'Montserrat-SemiBold',
+    rounded: 'Montserrat-Medium',
+    mono: 'Montserrat-Light',
   },
   web: {
-    sans: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
-    serif: "Georgia, 'Times New Roman', serif",
-    rounded: "'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif",
-    mono: "SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+    /** En Web añadimos fallbacks por si la fuente no carga */
+    sans: "'Montserrat', system-ui, -apple-system, sans-serif",
+    serif: "'Montserrat', Georgia, serif",
+    rounded: "'Montserrat', sans-serif",
+    mono: "'Montserrat', monospace",
   },
 });

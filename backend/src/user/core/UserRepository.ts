@@ -13,5 +13,7 @@ export interface UserRepository {
 
   save(user: User): Promise<Result<User, ErrorAbstract>>;
 
+  update(id: UserId, update: Partial<User>): Promise<Result<User, ErrorAbstract>>;
+
   delete(id: UserId): Promise<Result<void, ErrorAbstract>>;
 }

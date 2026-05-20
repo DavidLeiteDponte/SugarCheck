@@ -39,19 +39,19 @@ export class RefreshAccessToken {
       const user = userResult.getValue();
 
       // Opcional: Validar si el usuario fue suspendido antes de refrescar
-      if (user._isActive && !user._isActive.value) {
-        return Result.fail(
-          new ExpiredTokenError(
-            'Tu cuenta ha sido desactivada. No se puede renovar la sesión.',
-          ),
-        );
-      }
+      // if (user._isActive && !user._isActive.value) {
+      //   return Result.fail(
+      //     new ExpiredTokenError(
+      //       'Tu cuenta ha sido desactivada. No se puede renovar la sesión.',
+      //     ),
+      //   );
+      // }
 
       // 3. Generar payload actualizado (obteniendo datos frescos de la base de datos)
       const newPayload = {
-        sub: user._id.value,
-        name: user._name.value,
-        roles: user._roles.value,
+        sub: user.id.value,
+        name: user.name.value,
+        roles: user.roles.value,
       };
 
       // 4. Rotación de tokens (Estrategia de seguridad para EduFlow)

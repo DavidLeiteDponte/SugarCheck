@@ -14,7 +14,6 @@ export class UserRoles {
     const validRoles: string[] = [
       Role.Admin,
       Role.Guerrero,
-      Role.Representante,
     ];
 
     // 1. Validar que no sea un array vacío (regla de negocio opcional)

@@ -1,0 +1,32 @@
+type: http_request
+model: http_request
+id: rq_o3EaGvDvDZ
+createdAt: 2026-05-17T17:35:12.813597700
+updatedAt: 2026-05-17T18:08:05.218571200
+workspaceId: wk_tWcQe25Qgb
+folderId: fl_b6cMFYiLeT
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "name": "${[ faker.person.fullName() ]}",
+      "password": "${[ faker.string.hexadecimal(options=b64'e21pbjogMTB9') ]}",
+      "email": "${[ faker.internet.email() ]}",
+      "roles": [
+        "guerrero"
+      ],
+      "fechaNacimiento": ${[ faker.date.birthdate() ]}
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: 7Wtt0ztFz4
+method: POST
+name: Create
+sortPriority: 1000.0
+url: http://localhost:3000/user
+urlParameters: []

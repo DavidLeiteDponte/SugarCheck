@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, forwardRef } from '@nestjs/common';
 import { PrismaUserRepository } from '../PrismaUserRepository/PrismaUserRepository';
 import { UserController } from './user.controller';
 import { PrismaService } from '../../../shared/infrastructure/prisma.service';
@@ -12,8 +12,12 @@ import { BcryptHasher } from '../../../shared/infrastructure/security/bcrypt-has
 import { GenerateUUID } from '../../../shared/infrastructure/generate-uuid';
 import { GenerateUUIDInterface } from '../../../shared/application/ports/generate-uuid.interface';
 import { PasswordHasher } from '../../../shared/application/ports/password-hasher.interface';
+import { UpdateUser } from '../../app/UpdateUser';
+import { AuthModule } from '../../../auth/infra/auth.module';
 
 @Module({
+  // ➔ Rompemos el bucle envolviendo AuthModule en forwardRef
+  imports: [forwardRef(() => AuthModule)], 
   providers: [
     PrismaService,
     {
@@ -31,7 +35,7 @@ import { PasswordHasher } from '../../../shared/application/ports/password-hashe
     {
       provide: 'GetAllUser',
       useFactory: (repo: UserRepository) => new GetAllUser(repo),
-      inject: ['UserRepository'], // Inyecta el repo que definimos arriba
+      inject: ['UserRepository'],
     },
     {
       provide: 'SaveUser',
@@ -41,6 +45,14 @@ import { PasswordHasher } from '../../../shared/application/ports/password-hashe
         generate: GenerateUUIDInterface,
       ) => new SaveUser(repo, hash, generate),
       inject: ['UserRepository', 'BcryptHasher', 'GenerateUUID'],
+    },
+    {
+      provide: 'UpdateUser',
+      useFactory: (
+        repo: UserRepository,
+        hash: PasswordHasher,
+      ) => new UpdateUser(repo, hash),
+      inject: ['UserRepository', 'BcryptHasher'],
     },
     {
       provide: 'GetOneByEmailUser',

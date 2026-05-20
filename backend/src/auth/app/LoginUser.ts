@@ -40,18 +40,18 @@ export class LoginUser {
 
     // 2. Verificar estado de la cuenta (Opcional pero recomendado para EduFlow)
     // Supongamos que tu entidad User tiene una propiedad isActive o similar
-    if (user._isActive && !user._isActive.value) {
-      return Result.fail(
-        new AccountSuspendedError(
-          'Tu cuenta está suspendida. Contacta a soporte técnico.',
-        ),
-      );
-    }
+    // if (user._isActive && !user._isActive.value) {
+    //   return Result.fail(
+    //     new AccountSuspendedError(
+    //       'Tu cuenta está suspendida. Contacta a soporte técnico.',
+    //     ),
+    //   );
+    // }
 
     // 3. Comparar contraseñas
     const isMatch = await this.Hasher.compare(
       dto.password,
-      user._password.value,
+      user.password.value,
     );
 
     if (!isMatch) {
@@ -65,9 +65,9 @@ export class LoginUser {
     // 4. Generar Payload
     // Aquí podrías añadir una "tokenVersion" si decides implementarla luego
     const payload = {
-      sub: user._id.value,
-      name: user._name.value,
-      roles: user._roles.value,
+      sub: user.id.value,
+      name: user.name.value,
+      roles: user.roles.value,
     };
 
     // 5. Firmar Tokens

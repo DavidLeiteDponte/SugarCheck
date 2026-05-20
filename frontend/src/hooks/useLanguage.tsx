@@ -13,7 +13,7 @@ const useLanguage = () => {
 
   // Memoizar la función para evitar recreaciones innecesarias
   const changeLanguage = useCallback(
-    (lng) => {
+    (lng: string) => {
       i18n.changeLanguage(lng);
       localStorage.setItem("i18nextLng", lng);
       document.documentElement.lang = lng;
@@ -81,7 +81,7 @@ const useLanguage = () => {
 
   // Verificar si un idioma está disponible
   const isLanguageAvailable = useCallback(
-    (code) => {
+    (code: string) => {
       return languages.some((lang) => lang.code === code);
     },
     [languages]

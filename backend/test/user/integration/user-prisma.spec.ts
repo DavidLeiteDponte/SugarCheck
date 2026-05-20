@@ -2,7 +2,7 @@ import { UserFactory } from '../fixtures/user.fixture';
 import { PrismaUserRepository } from '../../../src/user/infra/PrismaUserRepository/PrismaUserRepository';
 import { PrismaService } from '../../../src/shared/infrastructure/prisma.service';
 import { Test, TestingModule } from '@nestjs/testing';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule} from '@nestjs/config';
 
 describe('PrismaUserRepository Integration Tests', () => {
   let prismaService: PrismaService;

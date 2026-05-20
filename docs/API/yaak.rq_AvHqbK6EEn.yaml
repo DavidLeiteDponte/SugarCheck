@@ -1,0 +1,27 @@
+type: http_request
+model: http_request
+id: rq_AvHqbK6EEn
+createdAt: 2026-05-17T23:16:06.057332200
+updatedAt: 2026-05-17T23:19:23.302374700
+workspaceId: wk_tWcQe25Qgb
+folderId: fl_oGE2bJHqn9
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "email": "",
+      "password": ""
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: WJV0AhMG99
+method: POST
+name: ''
+sortPriority: 0.0
+url: http://localhost:3000/auth/login
+urlParameters: []

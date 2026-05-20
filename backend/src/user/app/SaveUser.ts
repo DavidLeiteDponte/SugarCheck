@@ -2,7 +2,7 @@ import { User } from '../core/User';
 import { UserRepository } from '../core/UserRepository';
 import { ErrorAbstract } from '../../shared/error-abstract';
 import { Result } from '../../shared/result';
-import { UserId } from '../core/value-objects/UserId';
+import { UserId } from '../../shared/core/value-objects/UserId';
 import { UserName } from '../core/value-objects/UserName';
 import { UserEmail } from '../core/value-objects/UserEmail';
 import { UserRoles } from '../core/value-objects/UserRoles';

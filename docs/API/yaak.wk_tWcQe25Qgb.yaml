@@ -1,0 +1,15 @@
+type: workspace
+model: workspace
+id: wk_tWcQe25Qgb
+createdAt: 2026-05-17T17:33:38.656910600
+updatedAt: 2026-05-17T17:33:38.656911600
+authentication: {}
+authenticationType: null
+description: ''
+headers: []
+name: API SUGARCHECK
+encryptionKeyChallenge: null
+settingValidateCertificates: true
+settingFollowRedirects: true
+settingRequestTimeout: 0
+settingDnsOverrides: []

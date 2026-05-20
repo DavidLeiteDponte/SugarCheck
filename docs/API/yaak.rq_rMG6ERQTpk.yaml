@@ -1,0 +1,26 @@
+type: http_request
+model: http_request
+id: rq_rMG6ERQTpk
+createdAt: 2026-05-17T17:35:27.869481400
+updatedAt: 2026-05-17T17:58:34.727881600
+workspaceId: wk_tWcQe25Qgb
+folderId: fl_b6cMFYiLeT
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: GET
+name: Find one by Id
+sortPriority: 333.3333333333333
+url: http://localhost:3000/user/id/:id
+urlParameters:
+- enabled: true
+  name: :id
+  value: ${[ faker.string.uuid() ]}
+  id: SmqIYeeSVC
+- enabled: true
+  name: ''
+  value: ''
+  id: ErQEAfqwYv

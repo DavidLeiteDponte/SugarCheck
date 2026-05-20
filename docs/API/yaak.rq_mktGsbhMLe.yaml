@@ -1,0 +1,26 @@
+type: http_request
+model: http_request
+id: rq_mktGsbhMLe
+createdAt: 2026-05-17T17:35:13.787103800
+updatedAt: 2026-05-17T18:10:26.990568900
+workspaceId: wk_tWcQe25Qgb
+folderId: fl_b6cMFYiLeT
+authentication: {}
+authenticationType: null
+body: {}
+bodyType: null
+description: ''
+headers: []
+method: DELETE
+name: Delete
+sortPriority: 5000.0
+url: http://localhost:3000/user/:id
+urlParameters:
+- enabled: true
+  name: :id
+  value: 75ccea20-05f6-48fe-a71f-6a0fadea70ef
+  id: H99TjbzPVU
+- enabled: true
+  name: ''
+  value: ''
+  id: ZXfanwEFWH

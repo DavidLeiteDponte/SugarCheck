@@ -184,9 +184,6 @@ function DrawerAppBar() {
               borderColor: "divider",
             }}
           >
-            <Typography variant="h6" fontWeight={700}>
-              Menú
-            </Typography>
             <IconButton
               onClick={handleDrawerToggle}
               sx={{ color: "text.primary" }}
@@ -209,10 +206,6 @@ function DrawerAppBar() {
                 >
                   <ListItemText
                     primary={item.name}
-                    primaryTypographyProps={{
-                      fontWeight: 500,
-                      fontSize: "1.1rem",
-                    }}
                   />
                 </ListItemButton>
               </ListItem>

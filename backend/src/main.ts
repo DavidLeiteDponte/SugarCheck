@@ -4,10 +4,16 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
-//import { doubleCsrf } from 'csrf-csrf';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import express from 'express';
+
+// 1. Instanciamos un servidor Express nativo fuera del flujo estándar
+const server = express();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  // 2. Le pasamos el servidor express a NestJS usando el ExpressAdapter
+  const app = await NestFactory.create(AppModule, new ExpressAdapter(server));
+  
   app.useGlobalPipes(
     new ValidationPipe({
       transform: true,
@@ -15,7 +21,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
-  //app.use(doubleCsrfProtection);
+
   app.use(
     helmet({
       crossOriginEmbedderPolicy: false,
@@ -36,8 +42,16 @@ async function bootstrap() {
       },
     }),
   );
+
   app.use(cookieParser());
   app.enableCors();
-  await app.listen(process.env.PORT ?? 3000);
+  
+  // 3. Súper importante: Inicializamos la app de Nest sin levantar el puerto todavía
+  await app.init();
 }
+
+// Ejecutamos la inicialización interna de los módulos de NestJS
 bootstrap();
+
+// 4. Exportamos el servidor Express. Vercel lo capturará automáticamente a través de tu vercel.json
+export default server;

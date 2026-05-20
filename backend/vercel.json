@@ -2,11 +2,8 @@
   "version": 2,
   "builds": [
     {
-      "src": "src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "installCommand": "pnpm install && npx prisma generate"
-      }
+      "src": "package.json",
+      "use": "@vercel/node"
     }
   ],
   "routes": [

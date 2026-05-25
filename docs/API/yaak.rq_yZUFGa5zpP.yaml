@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_yZUFGa5zpP
 createdAt: 2026-05-17T17:34:06.222722
-updatedAt: 2026-05-20T21:40:14.490367400
+updatedAt: 2026-05-20T22:45:43.130309600
 workspaceId: wk_tWcQe25Qgb
 folderId: fl_b6cMFYiLeT
 authentication: {}
@@ -14,5 +14,5 @@ headers: []
 method: GET
 name: Find all
 sortPriority: 0.0
-url: http://localhost:3000/user
+url: ${[ onlineserver ]}/user
 urlParameters: []

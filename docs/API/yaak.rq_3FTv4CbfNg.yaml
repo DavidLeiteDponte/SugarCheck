@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_3FTv4CbfNg
 createdAt: 2026-05-17T17:35:28.266763900
-updatedAt: 2026-05-17T17:58:50.521411900
+updatedAt: 2026-05-20T22:45:55.889284500
 workspaceId: wk_tWcQe25Qgb
 folderId: fl_b6cMFYiLeT
 authentication: {}
@@ -14,7 +14,7 @@ headers: []
 method: GET
 name: Find one by email
 sortPriority: 555.5555555555555
-url: http://localhost:3000/user/email/:email
+url: ${[ onlineserver ]}/user/email/:email
 urlParameters:
 - enabled: true
   name: :email

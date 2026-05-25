@@ -20,6 +20,7 @@ import type { NavItem } from "../../../types/types";
 // ✅ Import correcto del contexto
 import { ThemeContext } from "../../../contexts/ThemeContext"; // Ajusta la ruta según tu estructura
 import useLanguage from "../../../hooks/useLanguage";
+import { Logo } from "../../ui/logo";
 
 const drawerWidth = 300;
 
@@ -46,15 +47,6 @@ function DrawerAppBar() {
     <>
       <AppBar
         component="nav"
-        sx={{
-          backdropFilter: "blur(10px)",
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
-          boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
-          position: "fixed",
-          top: 0,
-          zIndex: 1100,
-        }}
       >
         <Toolbar
           sx={{
@@ -64,21 +56,41 @@ function DrawerAppBar() {
             px: { xs: 2, sm: 3, md: 4 },
           }}
         >
-          <Typography
-            variant="h6"
-            component="a"
-            href="#"
-            sx={{
-              fontWeight: 700,
-              color: "text.primary",
-              textDecoration: "none",
-              "&:hover": {
-                opacity: 0.8,
-              },
-            }}
-          >
-            Gabriel Leonett
-          </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+            <Logo />
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography
+                variant="subtitle1"
+                component={"a"}
+                href="#"
+                sx={{
+                  fontWeight: 700,
+                  color: "text.primary",
+                  textDecoration: "none",
+                  "&:hover": {
+                    opacity: 0.8,
+                  },
+                }}
+              >
+                SugarCheck
+              </Typography>
+              <Typography
+                variant={"caption"}
+                component="a"
+                href="#"
+                sx={{
+                  fontWeight: 400,
+                  color: "text.primary",
+                  textDecoration: "none",
+                  "&:hover": {
+                    opacity: 0.8,
+                  },
+                }}
+              >
+                Tu Control de Diabetes
+              </Typography>
+            </Box>
+          </Box>
 
           {/* Menú desktop */}
           <Box
@@ -152,16 +164,17 @@ function DrawerAppBar() {
             </IconButton>
           </Box>
         </Toolbar>
-      </AppBar>
+      </AppBar >
 
       {/* Drawer móvil */}
-      <Drawer
+      < Drawer
         anchor="right"
         open={drawerOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true,
-        }}
+        }
+        }
         sx={{
           "& .MuiDrawer-paper": {
             width: drawerWidth,
@@ -253,7 +266,7 @@ function DrawerAppBar() {
             Made with ❤️ by Gabriel
           </Typography>
         </Box>
-      </Drawer>
+      </Drawer >
 
       <Toolbar />
     </>

@@ -2,7 +2,7 @@ type: http_request
 model: http_request
 id: rq_o3EaGvDvDZ
 createdAt: 2026-05-17T17:35:12.813597700
-updatedAt: 2026-05-17T18:08:05.218571200
+updatedAt: 2026-05-20T22:46:02.849766100
 workspaceId: wk_tWcQe25Qgb
 folderId: fl_b6cMFYiLeT
 authentication: {}
@@ -28,5 +28,5 @@ headers:
 method: POST
 name: Create
 sortPriority: 1000.0
-url: http://localhost:3000/user
+url: ${[ onlineserver ]}/user
 urlParameters: []

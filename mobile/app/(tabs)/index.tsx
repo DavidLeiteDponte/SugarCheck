@@ -3,8 +3,20 @@ import { HelloWave } from '@/components/hello-wave';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Link } from 'expo-router';
+import { database } from '@/src/database';
 
 export default function HomeScreen() {
+
+  // Las escrituras en WatermelonDB SIEMPRE deben envolverse en un bloque `write`
+  const crearTestTodo = async () => {
+    await database.write(async () => {
+      const nuevoTodo = await database.get('todos').create(todo => {
+        todo.text = '¡WatermelonDB está vivito y coleando!'
+        todo.isCompleted = false
+      })
+      console.log('Registro guardado localmente:', nuevoTodo)
+    })
+  }
   return (
     <ThemedView>
       <ThemedView style={styles.titleContainer}>

@@ -167,8 +167,8 @@ export const lightTheme = createTheme({
     mode: "light",
     primary: {
       main: "#1C75BA",
-      light: "#53A6E5",
-      dark: "#0d4a7d",
+      light: "#95BFDF",
+      dark: "#314656",
       contrastText: "#ffffff",
     },
     secondary: {
@@ -228,9 +228,9 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#1C75BA",
+      main: "#95BFDF",
       light: "#4a95d1",
-      dark: "#0d4a7d",
+      dark: "#314656",
       contrastText: "#ffffff",
     },
     secondary: {
@@ -270,7 +270,7 @@ export const darkTheme = createTheme({
     },
     divider: "#333333",
     action: {
-      active: "#1C75BA",
+      active: "95BFDF",
       hover: "rgba(28, 117, 186, 0.08)",
       hoverOpacity: 0.08,
       selected: "rgba(28, 117, 186, 0.16)",

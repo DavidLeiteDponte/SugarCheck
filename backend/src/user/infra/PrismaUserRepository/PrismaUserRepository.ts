@@ -6,7 +6,6 @@ import { ErrorAbstract } from '../../../shared/error-abstract';
 import { DatabaseError } from '../../../shared/DatabaseError';
 import { UserRepository } from '../../core/UserRepository';
 import { PrismaService } from '../../../shared/infrastructure/prisma.service';
-import { UserId } from '../../core/value-objects/UserId';
 import { UserName } from '../../core/value-objects/UserName';
 import { UserEmail } from '../../core/value-objects/UserEmail';
 import { UserRoles } from '../../core/value-objects/UserRoles';
@@ -15,6 +14,7 @@ import { UserPassword } from '../../core/value-objects/UserPassword';
 import { UserFechaNacimiento } from '../../core/value-objects/UserFechaNacimiento';
 import { UserNotFoundError } from '../../core/errors/UserNotFoundError';
 import { UserAlreadyExists } from '../../core/errors/UserAlreadyExists';
+import { UserId } from '../../../shared/core/value-objects/UserId';
 
 interface UserDB {
   id: string;
@@ -28,7 +28,7 @@ interface UserDB {
 
 @Injectable()
 export class PrismaUserRepository implements UserRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   private toDomain(raw: UserDB): User {
     return new User({
@@ -138,6 +138,34 @@ export class PrismaUserRepository implements UserRepository {
       );
     }
   }
+
+async update(id: UserId, update: Partial<User>): Promise<Result<User, ErrorAbstract>> {
+  try {
+    // 1. Es obligatorio usar await para que la base de datos se actualice realmente
+    await this.prisma.user.update({
+      where: { id: id.value },
+      data: {
+        // Usamos el encadenamiento opcional (?.) para que si el campo no viene en el Partial,
+        // Prisma simplemente lo ignore y no intente actualizarlo a undefined de forma explícita.
+        name: update.name?.value,
+        email: update.email?.value,
+        roles: update.roles?.value,
+        password: update.password?.value,
+        fechaNacimiento: update.fechaNacimiento?.value,
+      },
+    });
+
+    // 2. Esperamos y retornamos el usuario fresco ya actualizado desde la DB
+    return await this.getOneById(id);
+
+  } catch (error) {
+    // 3. Manejo de excepciones controlado para no romper la app y cumplir con la firma del método
+    // Aquí puedes usar tu clase concreta de error que extienda de ErrorAbstract (ej. DatabaseError)
+    const dbError = new DatabaseError(`Database error during user update: ${error instanceof Error ? error.message : String(error)}`);
+    
+    return Result.fail(dbError);
+  }
+}
 
   async delete(id: UserId): Promise<Result<void, ErrorAbstract>> {
     try {

@@ -4,21 +4,19 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
+    "prebuild": "npx prisma generate",
     "build": "nest build",
     "start": "nest start",
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
     "start:prod": "cross-env NODE_ENV=production node dist/main",
-    
     "prisma:generate": "prisma generate",
     "migrate:dev": "dotenv-cli -e .env.development -- prisma migrate dev",
     "migrate:test": "dotenv-cli -e .env.test -- prisma migrate dev",
     "prisma:studio": "dotenv-cli -e .env.development -- prisma studio",
-
     "test": "cross-env NODE_ENV=test jest",
     "test:int": "cross-env NODE_ENV=test dotenv-cli -e .env.test -- jest -i --config ./test/jest-int.json",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
     "test:cov": "cross-env NODE_ENV=test jest --coverage",
-
     "lint": "eslint \"{src,test}/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\""
   },

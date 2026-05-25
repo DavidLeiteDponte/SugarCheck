@@ -1,0 +1,32 @@
+type: http_request
+model: http_request
+id: rq_h6opiakZDG
+createdAt: 2026-05-17T17:35:13.443422600
+updatedAt: 2026-05-17T18:49:32.445936800
+workspaceId: wk_tWcQe25Qgb
+folderId: fl_b6cMFYiLeT
+authentication: {}
+authenticationType: null
+body:
+  text: |-
+    {
+      "name": "${[ faker.person.fullName() ]}",
+      "password": "${[ faker.string.hexadecimal(options=b64'e21pbjogMTB9') ]}",
+      "email": "${[ faker.internet.email() ]}",
+      "roles": [
+        "guerrero"
+      ],
+      "fechaNacimiento": ${[ faker.date.birthdate() ]}
+    }
+bodyType: application/json
+description: ''
+headers:
+- enabled: true
+  name: Content-Type
+  value: application/json
+  id: kIG3raTXmX
+method: PUT
+name: Update
+sortPriority: 4000.0
+url: http://localhost:3000/user
+urlParameters: []

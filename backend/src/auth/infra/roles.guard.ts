@@ -5,7 +5,7 @@ import { Role } from '../../shared/enums/role.enum';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(private reflector: Reflector) {}
+  constructor(private reflector: Reflector) { }
 
   canActivate(context: ExecutionContext): boolean {
     // 1. Obtenemos los roles requeridos desde el decorador @Roles(...)
@@ -22,12 +22,25 @@ export class RolesGuard implements CanActivate {
     // 2. Extraemos el usuario del request
     const { user } = context.switchToHttp().getRequest();
 
+    // Dentro de tu canActivate en el RolesGuard:
+
     // 3. ROBUSTEZ: Validamos que el usuario exista y tenga roles
-    // Si no hay usuario (porque olvidaste el AuthGuard) o no tiene el array de roles, denegamos.
     if (!user || !user.roles) {
+      // Comprobamos si el endpoint está marcado como opcional usando el Reflector
+      const isOptional = this.reflector.getAllAndOverride<boolean>('isAuthOptional', [
+        context.getHandler(),
+        context.getClass(),
+      ]);
+
+      // Si es opcional, dejamos que pase como invitado (el controlador manejará la escasez de datos)
+      if (isOptional) {
+        return true;
+      }
+
+      // Si no era opcional y no hay usuario, denegamos con total seguridad
       return false;
     }
-
+    
     // 4. Verificación de permisos
     return requiredRoles.some((role) => user.roles.includes(role));
   }

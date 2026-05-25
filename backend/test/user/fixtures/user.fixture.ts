@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 import { User } from '../../../src/user/core/User';
-import { UserId } from '../../../src/user/core/value-objects/UserId';
 import { UserEmail } from '../../../src/user/core/value-objects/UserEmail';
 import { Role } from '../../../src/shared/enums/role.enum';
 import { UserName } from '../../../src/user/core/value-objects/UserName';
@@ -8,6 +7,7 @@ import { UserPassword } from '../../../src/user/core/value-objects/UserPassword'
 import { UserRoles } from '../../../src/user/core/value-objects/UserRoles';
 import { UserCreatedAt } from '../../../src/user/core/value-objects/UserCreatedAt';
 import { UserFechaNacimiento } from '../../../src/user/core/value-objects/UserFechaNacimiento';
+import { UserId } from '../../../src/shared/core/value-objects/UserId';
 
 // Definimos una interfaz para los datos que queremos permitir personalizar
 interface UserOverrides {

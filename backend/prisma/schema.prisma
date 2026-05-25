@@ -7,11 +7,23 @@ generator client {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  name      String
-  password  String
-  email     String   @unique
-  roles     String[]
-  createdAt DateTime @default(now())
+  id              String      @id @default(uuid())
+  name            String
+  password        String
+  email           String      @unique
+  roles           String[]
+  createdAt       DateTime    @default(now())
   fechaNacimiento DateTime
+  
+  preference      Preference? 
+}
+
+model Preference {
+  userId        String   @id 
+  unitMeasure   String
+  thresholds    Json     
+  insulinRatios Json
+  sensitivity   Float    
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -1,6 +1,6 @@
 # ⚔️ Guía para Nuevos Guerreros (Cómo Contribuir)
 
-¡Saludos, valiente! Gracias por tu interés en unirte a la **Orden de los Guerreros Azules**. Nuestro propósito es transformar el manejo de la diabetes infantil en una aventura épica, y toda ayuda en esta noble misión es vital.
+¡Saludos, valiente! Gracias por tu interés en unirte a la **Orden de los SugarCheck**. Nuestro propósito es transformar el manejo de la diabetes infantil en una aventura épica, y toda ayuda en esta noble misión es vital.
 
 Ya seas un **Forjador de Código** (Desarrollador), un **Maestro de la Ilusión** (Diseñador UI/UX) o un **Cazador de Bugs** (Tester), aquí te explicamos cómo puedes aportar tus habilidades a nuestro cuartel general.
 

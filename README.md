@@ -1,9 +1,9 @@
-# 🛡️ Guerreros Azules
+# 🛡️ SugarCheck
 
-**Guerreros Azules** es una aplicación móvil diseñada para transformar el manejo de la diabetes infantil en una aventura épica. A través de la gamificación y una interfaz amigable, ayudamos a los niños a llevar un registro de su salud mientras se sienten como verdaderos héroes, y brindamos a los padres las herramientas necesarias para monitorear y configurar el tratamiento.
+**SugarCheck** es una aplicación móvil diseñada para transformar el manejo de la diabetes infantil en una aventura épica. A través de la gamificación y una interfaz amigable, ayudamos a los niños a llevar un registro de su salud mientras se sienten como verdaderos héroes, y brindamos a los padres las herramientas necesarias para monitorear y configurar el tratamiento.
 
 ## 🎯 El Propósito
-El control de la glucosa y la administración de insulina puede ser un proceso estresante para los niños. *Guerreros Azules* cambia la narrativa: las inyecciones son "pociones", la comida saludable son "manzanas doradas" y mantener la glucosa estable es mantenerse en la "Zona Sagrada". 
+El control de la glucosa y la administración de insulina puede ser un proceso estresante para los niños. *SugarCheck* cambia la narrativa: las inyecciones son "pociones", la comida saludable son "manzanas doradas" y mantener la glucosa estable es mantenerse en la "Zona Sagrada". 
 
 ## ✨ Características Principales (Features)
 
